@@ -97,6 +97,9 @@ imgs.forEach((ele, index) => {
   carouselContainer.addEventListener("click", (e) => {
     handleCarouselClick(ele, index, e);
   });
+  carouselContainer.addEventListener("keydown", (e) => {
+    handleCarouselKeydown(ele, index, e);
+  });
 });
 
 // Get index of large image
