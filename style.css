@@ -17,17 +17,25 @@
 
 .thumbnail-container {
   display: flex;
+  position: absolute;
+  top: 87%;
+  left: 40%;
   background-color: #00000098;
   gap: 1em;
   overflow-x: scroll;
   border: 2px solid #00000098;
   border-radius: 6px;
-  margin: 0 auto;
+  transform: translateY(-50%, -50%);
   max-width: 20%;
-  margin-top: 1.5em;
 }
 
 /* Images */
 .thumbnail-container img {
-  width: 150px;
+  width: 100px;
+}
+
+@media (min-width: 768px) {
+  .thumbnail-container {
+    top: 3%;
+  }
 }
