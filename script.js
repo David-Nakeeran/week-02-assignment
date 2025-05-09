@@ -58,10 +58,11 @@ const createLargeImage = () => {
 const createNavigationButtons = () => {
   const prevBtn = document.createElement("button");
   const nextBtn = document.createElement("button");
-  prevBtn.textContent = "Previous Image";
-  nextBtn.textContent = "Next Image";
+  prevBtn.textContent = "<";
+  nextBtn.textContent = ">";
   prevBtn.setAttribute("class", "prev-btn");
   nextBtn.setAttribute("class", "next-btn");
+
   btnContainer.appendChild(prevBtn);
   btnContainer.appendChild(nextBtn);
   return [prevBtn, nextBtn];
@@ -120,6 +121,7 @@ const updateNextLargeImage = (index, element) => {
     element.src = imgs[index].src;
     element.alt = imgs[index].alt;
     element.ariaLabel = imgs[index].alt;
+    document.getElementById(`${index}`).focus();
     element.setAttribute("data-index", `${index}-l`);
     return;
   }
@@ -127,6 +129,7 @@ const updateNextLargeImage = (index, element) => {
   element.src = imgs[index].src;
   element.alt = imgs[index].alt;
   element.ariaLabel = imgs[index].alt;
+  document.getElementById(`${index}`).focus();
   element.setAttribute("data-index", `${index}-l`);
 };
 
@@ -136,6 +139,7 @@ const updatePrevLargeImage = (index, element) => {
     element.src = imgs[lastIndexOfArr].src;
     element.alt = imgs[lastIndexOfArr].alt;
     element.ariaLabel = imgs[lastIndexOfArr].alt;
+    document.getElementById(`${index}`).focus();
     element.setAttribute("data-index", `${lastIndexOfArr}-l`);
     return;
   }
@@ -143,6 +147,7 @@ const updatePrevLargeImage = (index, element) => {
   element.src = imgs[index].src;
   element.alt = imgs[index].alt;
   element.ariaLabel = imgs[index].alt;
+  document.getElementById(`${index}`).focus();
   element.setAttribute("data-index", `${index}-l`);
 };
 
