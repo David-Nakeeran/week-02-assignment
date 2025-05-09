@@ -26,6 +26,7 @@ const imgs = [
 ];
 
 const imgContainer = document.getElementById("img-container");
+const btnContainer = document.getElementById("btn-container");
 const carouselContainer = document.getElementById("thumbnail-container");
 
 // generate thumbnail images
@@ -44,7 +45,6 @@ const generateThumbnails = () => {
 // create large image tag
 const createLargeImage = () => {
   const img = document.createElement("img");
-  const backImg = imgs[0].src;
   img.src = imgs[0].src;
   img.alt = imgs[0].alt;
   img.ariaLabel = imgs[0].alt;
@@ -52,6 +52,19 @@ const createLargeImage = () => {
   img.setAttribute("class", "large-image");
   img.setAttribute("data-index", "0-l");
   imgContainer.appendChild(img);
+};
+
+// Navigation btns
+const createNavigationButtons = () => {
+  const prevBtn = document.createElement("button");
+  const nextBtn = document.createElement("button");
+  prevBtn.textContent = "Previous Image";
+  nextBtn.textContent = "Next Image";
+  prevBtn.setAttribute("class", "prev-btn");
+  nextBtn.setAttribute("class", "next-btn");
+  btnContainer.appendChild(prevBtn);
+  btnContainer.appendChild(nextBtn);
+  return [prevBtn, nextBtn];
 };
 
 // callbacks
@@ -73,5 +86,65 @@ imgs.forEach((ele, index) => {
   });
 });
 
+// Get index of large image
+const getIndexOfLargeImage = (largeImg) => {
+  const hyphenIndex = largeImg.dataset.index.indexOf("-");
+
+  let largeImgIndex = parseInt(
+    largeImg.dataset.index.substring(0, hyphenIndex)
+  );
+  return largeImgIndex;
+};
+
+// Change large image
+const updateNextLargeImage = (index, element) => {
+  const lastIndexOfArr = imgs.length - 1;
+  if (index === lastIndexOfArr) {
+    const index = 0;
+    element.src = imgs[index].src;
+    element.alt = imgs[index].alt;
+    element.ariaLabel = imgs[index].alt;
+    element.setAttribute("data-index", `${index}-l`);
+    return;
+  }
+  index++;
+  element.src = imgs[index].src;
+  element.alt = imgs[index].alt;
+  element.ariaLabel = imgs[index].alt;
+  element.setAttribute("data-index", `${index}-l`);
+};
+
+const updatePrevLargeImage = (index, element) => {
+  const lastIndexOfArr = imgs.length - 1;
+  if (index === 0) {
+    element.src = imgs[lastIndexOfArr].src;
+    element.alt = imgs[lastIndexOfArr].alt;
+    element.ariaLabel = imgs[lastIndexOfArr].alt;
+    element.setAttribute("data-index", `${lastIndexOfArr}-l`);
+    return;
+  }
+  index--;
+  element.src = imgs[index].src;
+  element.alt = imgs[index].alt;
+  element.ariaLabel = imgs[index].alt;
+  element.setAttribute("data-index", `${index}-l`);
+};
+
+const handleClickForNextBtn = () => {
+  const largeImg = document.getElementById("large-img");
+  let largeImgIndex = getIndexOfLargeImage(largeImg);
+  updateNextLargeImage(largeImgIndex, largeImg);
+};
+
+const handleClickForPrevBtn = () => {
+  const largeImg = document.getElementById("large-img");
+  let largeImgIndex = getIndexOfLargeImage(largeImg);
+  updatePrevLargeImage(largeImgIndex, largeImg);
+};
+
 createLargeImage();
 generateThumbnails();
+const [prevBtn, nextBtn] = createNavigationButtons();
+
+nextBtn.addEventListener("click", handleClickForNextBtn);
+prevBtn.addEventListener("click", handleClickForPrevBtn);
