@@ -34,6 +34,24 @@
   width: 100px;
 }
 
+/* Buttons */
+.btn-container {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75em;
+  width: 100%;
+}
+
+.prev-btn {
+  left: 0;
+}
+
+.next-btn {
+  right: 0;
+}
+
 @media (min-width: 768px) {
   .thumbnail-container {
     top: 3%;
