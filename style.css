@@ -3,3 +3,31 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.large-image {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  object-fit: cover;
+  object-position: center center;
+  z-index: -1;
+}
+
+.thumbnail-container {
+  display: flex;
+  background-color: #00000098;
+  gap: 1em;
+  overflow-x: scroll;
+  border: 2px solid #00000098;
+  border-radius: 6px;
+  margin: 0 auto;
+  max-width: 20%;
+  margin-top: 1.5em;
+}
+
+/* Images */
+.thumbnail-container img {
+  width: 150px;
+}
