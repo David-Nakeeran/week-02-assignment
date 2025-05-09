@@ -79,6 +79,19 @@ const handleCarouselClick = (ele, index, e) => {
   }
 };
 
+const handleCarouselKeydown = (ele, index, e) => {
+  if (e.code === "Enter") {
+    const largeImg = document.getElementById("large-img");
+    if (index === parseInt(e.target.id)) {
+      largeImg.src = ele.src;
+      largeImg.alt = ele.alt;
+      largeImg.ariaLabel = ele.alt;
+      largeImg.role = "button";
+      largeImg.setAttribute("data-index", `${index}-l`);
+    }
+  }
+};
+
 // loop through array, add event listener to carouselContainer
 imgs.forEach((ele, index) => {
   carouselContainer.addEventListener("click", (e) => {
