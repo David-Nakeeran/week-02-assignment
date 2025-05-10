@@ -1,26 +1,32 @@
 const imgs = [
   {
     src: "./assets/images/landscape1.png",
+    srcSet: "./assets/images/landscapeLarge1.png 800",
     alt: "Beautiful image of iceberg",
   },
   {
     src: "./assets/images/landscape2.jpg",
+    srcSet: "./assets/images/landscapeLarge2.jpg 800",
     alt: "Beautiful image of the nights sky",
   },
   {
     src: "./assets/images/landscape3.jpg",
+    srcSet: "./assets/images/landscapeLarge3.jpg 800",
     alt: "Overlooking lake with backdrop of snowy mountains",
   },
   {
     src: "./assets/images/landscape4.jpg",
+    srcSet: "./assets/images/landscapeLarge4.jpg 800",
     alt: "Iceberg with backdrop of mounts in the distance",
   },
   {
     src: "./assets/images/landscape5.jpg",
+    srcSet: "./assets/images/landscapeLarge5.jpg 800",
     alt: "Close up of iceberg, that looks like it's standing out of the water",
   },
   {
     src: "./assets/images/landscape6.jpg",
+    srcSet: "./assets/images/landscapeLarge6.jpg 800",
     alt: "Block of ice that has a bluey tinge of colour",
   },
 ];
