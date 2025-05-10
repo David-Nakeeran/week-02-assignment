@@ -65,9 +65,16 @@ const createLargeImage = () => {
 const createNavigationButtons = () => {
   const prevBtn = document.createElement("button");
   const nextBtn = document.createElement("button");
-  prevBtn.textContent = "<";
+
+  const iRight = document.createElement("i");
+  iRight.setAttribute("class", "fa-solid fa-circle-arrow-right");
+  nextBtn.appendChild(iRight);
+
+  const iLeft = document.createElement("i");
+  iLeft.setAttribute("class", "fa-solid fa-circle-arrow-left");
+  prevBtn.appendChild(iLeft);
+
   prevBtn.ariaLabel = "Previous image";
-  nextBtn.textContent = ">";
   nextBtn.ariaLabel = "Next image";
   prevBtn.setAttribute("class", "prev-btn");
   nextBtn.setAttribute("class", "next-btn");
