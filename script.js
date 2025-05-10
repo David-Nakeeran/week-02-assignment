@@ -48,6 +48,7 @@ const createLargeImage = () => {
   img.src = imgs[0].src;
   img.alt = imgs[0].alt;
   img.ariaLabel = imgs[0].alt;
+  img.ariaLive = "polite";
   img.setAttribute("id", "large-img");
   img.setAttribute("class", "large-image");
   img.setAttribute("data-index", "0-l");
