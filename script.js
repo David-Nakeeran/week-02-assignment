@@ -36,7 +36,7 @@ const generateThumbnails = () => {
     img.src = ele.src;
     img.alt = ele.alt;
     img.ariaLabel = ele.alt;
-    img.tabIndex = "0";
+    img.tabIndex = "1";
     img.setAttribute("id", index);
     carouselContainer.appendChild(img);
   });
@@ -59,7 +59,9 @@ const createNavigationButtons = () => {
   const prevBtn = document.createElement("button");
   const nextBtn = document.createElement("button");
   prevBtn.textContent = "<";
+  prevBtn.ariaLabel = "Previous image";
   nextBtn.textContent = ">";
+  nextBtn.ariaLabel = "Next image";
   prevBtn.setAttribute("class", "prev-btn");
   nextBtn.setAttribute("class", "next-btn");
 
