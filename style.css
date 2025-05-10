@@ -62,7 +62,7 @@ button {
 
 .next-btn:hover,
 .prev-btn:hover {
-  color: #dedede;
+  color: #585757;
 }
 
 @media (min-width: 768px) {
